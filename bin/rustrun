@@ -1,4 +1,13 @@
 BASEDIR=$(pwd)
+if [ ! $# -eq 1 ]; then
+    echo "There should be 1 and only 1 argument"
+    exit 1
+fi
+FILE=$1
+if [ ! -f "$FILE" ]; then
+    echo "$FILE does not exist"
+    exit 1
+fi
 cd /tmp
 TEMP_DIR_NAME=$$
 CARGONAME="rustrun${TEMP_DIR_NAME}"
